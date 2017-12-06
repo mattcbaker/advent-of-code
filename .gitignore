@@ -3,3 +3,5 @@ obj/
 .vs/
 packages/
 *ncrunchsolution.user
+*.ncrunchproject
+*.ncrunchsolution
