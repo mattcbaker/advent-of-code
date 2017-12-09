@@ -72,6 +72,47 @@ namespace solution
 
             Assert.AreEqual(Direction.Down, actual);
         }
+
+        [Test]
+        public void should_return_right_when_the_spiral_is_eight_squares()
+        {
+            var spiral = new List<Point>()
+            {
+                new Point { x = 0, y = 0, value = 1 },
+                new Point { x = 0, y = 1, value = 1 },
+                new Point { x = 1, y = 1, value = 2 },
+                new Point { x = 1, y = 0, value = 4 },
+                new Point { x = 1, y = -1, value = 5 },
+                new Point { x = 0, y = -1, value = 10 },
+                new Point { x = -1, y = -1, value = 11 },
+                new Point { x = -1, y = 0, value = 23 },
+            };
+            var actual = subject(spiral);
+
+            Assert.AreEqual(Direction.Right, actual);
+        }
+
+        [Test]
+        public void should_return_up_when_the_spiral_is_eleven_squares()
+        {
+            var spiral = new List<Point>()
+            {
+                new Point { x = 0, y = 0, value = 1 },
+                new Point { x = 0, y = 1, value = 1 },
+                new Point { x = 1, y = 1, value = 2 },
+                new Point { x = 1, y = 0, value = 4 },
+                new Point { x = 1, y = -1, value = 5 },
+                new Point { x = 0, y = -1, value = 10 },
+                new Point { x = -1, y = -1, value = 11 },
+                new Point { x = -1, y = 0, value = 23 },
+                new Point { x = -1, y = 1, value = 25 },
+                new Point { x = -1, y = 2, value = 26 },
+                new Point { x = 0, y = 2, value = 54 }
+            };
+            var actual = subject(spiral);
+
+            Assert.AreEqual(Direction.Up, actual);
+        }
     }
 
     public class Point
@@ -100,12 +141,12 @@ namespace solution
                 return Direction.Down;
             }
 
-            if (HasValueBelow(spiral, last))
+            if (HasValueBelow(spiral, last) && !HasValueToTheLeft(spiral, last))
             {
                 return Direction.Left;
             }
 
-            if (HasValueToTheLeft(spiral, last))
+            if (HasValueToTheLeft(spiral, last) && !HasValueAbove(spiral, last))
             {
                 return Direction.Up;
             }
@@ -121,5 +162,8 @@ namespace solution
 
         static bool HasValueToTheLeft(List<Point> spiral, Point point) => 
             spiral.Exists(item => item.x == point.x && item.y == point.y - 1);
+
+        static bool HasValueAbove(List<Point> spiral, Point point) =>
+            spiral.Exists(item => item.x == point.x + 1 && item.y == point.y);
     }
 }

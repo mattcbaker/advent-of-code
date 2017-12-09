@@ -5,3 +5,4 @@ packages/
 *ncrunchsolution.user
 *.ncrunchproject
 *.ncrunchsolution
+_NCrunch_solution/

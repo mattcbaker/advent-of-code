@@ -44,7 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DirectionFinderTests.cs" />
+    <Compile Include="NeighborFinderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpiralMagic.cs" />
+    <Compile Include="SpiralMakerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
