@@ -46,7 +46,7 @@ namespace solution
         {
             var actual = subject(277678);
 
-            Console.WriteLine(actual);
+            Assert.AreEqual(279138, actual);
         }
     }
 
@@ -69,7 +69,6 @@ namespace solution
             var direction = DirectionFinder.FindNextDirection(spiral);
             var x = spiral.Last().x;
             var y = spiral.Last().y;
-            var value = 0;
 
             switch (direction)
             {
@@ -87,7 +86,7 @@ namespace solution
                     break;
             }
 
-            value = NeighborFinder.SumValueOfNeighbors(spiral, x, y);
+            var value = Neighbors.SumValueOfNeighbors(spiral, x, y);
 
             return new Point { x = x, y = y, value = value };
         }

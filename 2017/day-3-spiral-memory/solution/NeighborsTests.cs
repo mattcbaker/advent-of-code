@@ -5,9 +5,9 @@ using NUnit.Framework;
 
 namespace solution
 {
-    public class NeighborFinderTests
+    public class NeighborsTests
     {
-        Func<List<Point>, int, int, int> subjectNew = NeighborFinder.SumValueOfNeighbors;
+        Func<List<Point>, int, int, int> subjectNew = Neighbors.SumValueOfNeighbors;
 
         [Test]
         public void should_return_0_when_there_are_no_neighbors()
@@ -59,7 +59,7 @@ namespace solution
         }
     }
 
-    public class NeighborFinder
+    public class Neighbors
     {
         public static int SumValueOfNeighbors(List<Point> spiral, int x, int y)
         {
