@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace day_2_challenge_1
+namespace Day2
 {
   class Program
   {
