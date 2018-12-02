@@ -6,3 +6,4 @@ packages/
 *.ncrunchproject
 *.ncrunchsolution
 _NCrunch_solution/
+.vscode/
